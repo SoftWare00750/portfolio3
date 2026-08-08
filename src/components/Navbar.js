@@ -11,49 +11,29 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    console.log("🔵 Clicked:", sectionId);
-    
-    // Close menu first
     setOpen(false);
-    console.log("🔵 Menu closed");
-    
-    // Wait for menu to close, then scroll
+
     setTimeout(() => {
       const section = document.getElementById(sectionId);
-      console.log("🔵 Section found:", section);
-      
-      if (!section) {
-        console.error("❌ Section not found:", sectionId);
-        return;
-      }
+      if (!section) return;
 
-      // Scroll to section
-      section.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
-      
-      // Adjust for navbar after scroll
+
       setTimeout(() => {
         const navbarHeight = 90;
         const currentScroll = window.pageYOffset;
         window.scrollTo({
           top: currentScroll - navbarHeight,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }, 100);
     }, 150);
   };
 
-  const toggleMenu = () => {
-    console.log("🍔 Hamburger clicked! Current state:", open);
-    setOpen(!open);
-    console.log("🍔 New state will be:", !open);
-  };
-
-  useEffect(() => {
-    console.log("📱 Menu open state changed to:", open);
-  }, [open]);
+  const toggleMenu = () => setOpen((prev) => !prev);
 
   return (
     <>
@@ -61,10 +41,10 @@ export default function Navbar() {
       <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-inner">
           {/* Logo */}
-          <div 
-            className="brand" 
+          <div
+            className="brand"
             onClick={() => scrollToSection("home")}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
           >
             <div className="logo-circle">
               <p>O</p>
@@ -73,34 +53,19 @@ export default function Navbar() {
 
           {/* Desktop Navigation - Visible on desktop only */}
           <nav className="nav-desktop">
-            <button 
-              className="nav-link" 
-              onClick={() => scrollToSection("home")}
-            >
+            <button className="nav-link" onClick={() => scrollToSection("home")}>
               Home
             </button>
-            <button 
-              className="nav-link" 
-              onClick={() => scrollToSection("projects")}
-            >
+            <button className="nav-link" onClick={() => scrollToSection("projects")}>
               Projects
             </button>
-            <button 
-              className="nav-link" 
-              onClick={() => scrollToSection("about")}
-            >
+            <button className="nav-link" onClick={() => scrollToSection("about")}>
               About
             </button>
-            <button 
-              className="nav-link" 
-              onClick={() => scrollToSection("skills")}
-            >
+            <button className="nav-link" onClick={() => scrollToSection("skills")}>
               Skills
             </button>
-            <button 
-              className="contact-button" 
-              onClick={() => scrollToSection("contact")}
-            >
+            <button className="contact-button" onClick={() => scrollToSection("contact")}>
               Contact Me
             </button>
           </nav>
@@ -109,7 +74,10 @@ export default function Navbar() {
           <div
             className={`hamburger ${open ? "active" : ""}`}
             onClick={toggleMenu}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
+            role="button"
+            aria-label="Toggle navigation menu"
+            aria-expanded={open}
           >
             <span></span>
             <span></span>
@@ -120,34 +88,19 @@ export default function Navbar() {
 
       {/* MOBILE DROPDOWN MENU - OUTSIDE navbar, independent element */}
       <nav className={`nav-mobile ${open ? "open" : ""}`}>
-        <button 
-          className="nav-link" 
-          onClick={() => scrollToSection("home")}
-        >
+        <button className="nav-link" onClick={() => scrollToSection("home")}>
           Home
         </button>
-        <button 
-          className="nav-link" 
-          onClick={() => scrollToSection("projects")}
-        >
+        <button className="nav-link" onClick={() => scrollToSection("projects")}>
           Projects
         </button>
-        <button 
-          className="nav-link" 
-          onClick={() => scrollToSection("about")}
-        >
+        <button className="nav-link" onClick={() => scrollToSection("about")}>
           About
         </button>
-        <button 
-          className="nav-link" 
-          onClick={() => scrollToSection("skills")}
-        >
+        <button className="nav-link" onClick={() => scrollToSection("skills")}>
           Skills
         </button>
-        <button 
-          className="contact-button" 
-          onClick={() => scrollToSection("contact")}
-        >
+        <button className="contact-button" onClick={() => scrollToSection("contact")}>
           Contact Me
         </button>
       </nav>

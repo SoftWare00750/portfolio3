@@ -22,14 +22,12 @@ export default function Hero() {
             </p>
           </span>
           </div>
-          {/* FIXED: Correct path with error handling */}
-          <img 
-            src="/assets/coder.png" 
-            alt="coder" 
+          <img
+            src="/assets/coder.png"
+            alt="coder"
             className="hero-image"
             onError={(e) => {
-              console.error('Hero image failed to load:', e.target.src);
-              e.target.style.display = 'none';
+              e.target.style.display = "none";
             }}
           />
         </div>

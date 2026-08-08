@@ -5,26 +5,25 @@ const skills = [
   { name: "CSS", img: "/assets/css.png" },
   { name: "Tailwind CSS", img: "/assets/tailwind.png" },
   { name: "Javascript", img: "/assets/javascript.png" },
-  
   { name: "React", img: "/assets/react.png" },
   { name: "Angular", img: "/assets/angular.png" },
   { name: "Vue", img: "/assets/vue1.png" },
-  { name: "express", img: "/assets/express.png" },
+  { name: "Express", img: "/assets/express.png" },
   { name: "Django", img: "/assets/django.png" },
-  { name: ".Net",img: "/assets/.net.png" },
-  { name: "laravel", img: "/assets/laravel.png" },
+  { name: ".Net", img: "/assets/dotnet.png" },
+  { name: "Laravel", img: "/assets/laravel.png" },
   { name: "Spring", img: "/assets/spring.png" },
-  { name: "MySql", img: "/assets/mysql.png" },
-   { name: "Postgresql", img: "/assets/postgresql.png" },
+  { name: "MySQL", img: "/assets/mysql.png" },
+  { name: "PostgreSQL", img: "/assets/postgresql.png" },
   { name: "MongoDB", img: "/assets/mongodb.png" },
   { name: "Vercel", img: "/assets/vercel.png" },
-  { name: "Networking ", img: "/assets/networking.png" },
+  { name: "Networking", img: "/assets/networking.png" },
   { name: "CI/CD", img: "/assets/cicd.png" },
-   { name: "Docker", img: "/assets/docker.png" },
-    { name: "Git", img: "/assets/git.png" },
-     { name: "Github", img: "/assets/github.png" },
-     {name: "AWS", img: "/assets/aws.png" },
-     {name: "Oracle Cloud", img: "/assets/oracle.png"}
+  { name: "Docker", img: "/assets/docker.png" },
+  { name: "Git", img: "/assets/git.png" },
+  { name: "Github", img: "/assets/github.png" },
+  { name: "AWS", img: "/assets/aws.png" },
+  { name: "Oracle Cloud", img: "/assets/oracle.png" },
 ];
 
 export default function Skills() {
@@ -35,7 +34,14 @@ export default function Skills() {
         <div className="skills-grid">
           {skills.map((s) => (
             <div className="skill-item" key={s.name}>
-              <img src={s.img} alt={s.name} className="skill-icon" />
+              <img
+                src={s.img}
+                alt={s.name}
+                className="skill-icon"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                }}
+              />
               <div className="skill-pill">{s.name}</div>
             </div>
           ))}
