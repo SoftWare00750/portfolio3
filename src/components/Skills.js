@@ -10,7 +10,7 @@ const skills = [
   { name: "Vue", img: "/assets/vue1.png" },
   { name: "Express", img: "/assets/express.png" },
   { name: "Django", img: "/assets/django.png" },
-  { name: ".Net", img: "/assets/dotnet.png" },
+  { name: ".Net", img: "/assets/dotnet.svg" },
   { name: "Laravel", img: "/assets/laravel.png" },
   { name: "Spring", img: "/assets/spring.png" },
   { name: "MySQL", img: "/assets/mysql.png" },

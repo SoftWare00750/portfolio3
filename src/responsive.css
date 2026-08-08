@@ -63,6 +63,62 @@
   }
 
   /* Hero text centers on small screens */
+   .hero-inner {
+    padding: 0 20px;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-name {
+    font-size: 52px;
+    line-height: 1;
+    font-weight: bolder;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .hero-name .first-name {
+    display: block;
+    margin-bottom: -4px;
+  }
+
+  .hero-name .last-name {
+    margin-top: -11px;
+    font-size: 52px;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .middle-name {
+    font-size: 1.5em; /* Even smaller on mobile */
+  }
+
+.hero-sub-right-fixed {
+    position: static;
+    transform: none;
+    font-size: 24px;
+    text-align: center;
+    margin: 25px auto 15px;
+    padding: 0;           /* uniform — no class-specific horizontal padding */
+    max-width: 100%;
+    width: 100%;
+  }
+
+ .hero-sub-right2 {
+    position: static;
+    transform: none;
+    width: 130%;
+    font-size: 16px;
+    text-align: center;
+    margin: 7px auto 5px 2px; /* Top, Right, Bottom, Left */
+    padding: 0 32px 0 33px;
+    line-height: 1.6;
+    padding-right: 120px;
+}
+  
   .hero-inner {
     flex-direction: column;
     text-align: center;
@@ -72,15 +128,9 @@
     text-align: center;
   }
 
-  .hero-sub-right-fixed,
-  .hero-sub-right2 {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
 
   .hero-image {
-    order: -1;
+    order: 1;
     max-width: 280px;
     width: 70%;
     margin: 0 auto 1.5rem;

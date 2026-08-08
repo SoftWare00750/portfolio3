@@ -16,7 +16,6 @@ const GREETINGS = [
   { word: "Sannu", lang: "Hausa" },
   { word: "Ẹ n lẹ", lang: "Yoruba" },
   { word: "Hallå", lang: "Swedish" },
-  { word: "Hello", lang: "Welcome" },
 ];
 
 const STEP_MS = 220;

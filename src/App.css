@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Pacifico&family=Satisfy&display=swap');
+/* Graffiti display font — solid-filled, clear, reliably hosted on Google Fonts
+   (replaces the old cdnfonts "Sprite Graffiti" import, whose hosted glyphs
+   render hollow/shadowed and load unreliably) */
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 :root {
