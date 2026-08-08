@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const ROLES = ["Web Developer", "Frontend Developer", "Backend Developer"];
-const INTERVAL_MS = 3000;
+const INTERVAL_MS = 2000;
 
 export default function RoleCycle({ className = "", as: Tag = "span" }) {
   const [index, setIndex] = useState(0);

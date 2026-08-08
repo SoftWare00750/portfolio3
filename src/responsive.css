@@ -131,9 +131,9 @@
 
   .hero-image {
     order: 1;
-    max-width: 280px;
-    width: 70%;
-    margin: 0 auto 1.5rem;
+    max-width: 240px;
+    width: 62%;
+    margin: 0 auto 1.25rem;
   }
 
   .hero-text1 {
