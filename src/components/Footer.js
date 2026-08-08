@@ -1,7 +1,5 @@
 import React from "react";
 
-import React from "react";
-
 // ─────────────────────────────────────────────────────────────
 // Update your real profile links here. Nothing else needs to
 // change — the icons and colors are already wired up below.
