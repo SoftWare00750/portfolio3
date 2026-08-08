@@ -199,6 +199,19 @@ h6 {
   justify-content: space-between;
 }
 
+.nav-desktop { 
+--font-primary: "Permanent Marker", cursive;
+  --font-accent: "Permanent Marker", cursive;
+
+}
+
+.nav-moile {
+--font-primary: "Permanent Marker", cursive;
+  --font-accent: "Permanent Marker", cursive;
+
+
+}
+
 .brand {
   display: flex;
   align-items: center;
