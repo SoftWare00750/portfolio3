@@ -18,6 +18,22 @@
     <meta property="og:type" content="website" />
     <title>Damilola's | Portfolio</title>
 
+    <!-- Apply the remembered theme (light by default) before first paint,
+         including on the loading screen, so there's no flash of the wrong
+         theme while React boots. -->
+    <script>
+      (function () {
+        try {
+          var stored = window.localStorage.getItem("theme");
+          if (stored === "dark") {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        } catch (e) {
+          /* localStorage unavailable - default (light) theme applies */
+        }
+      })();
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

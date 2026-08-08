@@ -4,13 +4,16 @@ export const useScrollAnimation = (ready = true) => {
   // Entrance animation for navbar + hero text, gated behind `ready`
   // so it plays right after the loading screen hides instead of
   // finishing invisibly underneath it.
+  // NOTE: the navbar's entrance animation is intentionally NOT handled here.
+  // Navbar.js re-renders on every scroll event (to toggle its "scrolled"
+  // class), and React overwrites the DOM's className on every re-render.
+  // Adding the "animate" class imperatively via the DOM (as this hook used
+  // to do) got wiped out the moment the user scrolled, which made the
+  // navbar appear to "slide back up". The navbar now manages its own
+  // "animate" state internally via React (see Navbar.js) so it survives
+  // re-renders.
   useEffect(() => {
     if (!ready) return;
-
-    const animateNavbar = () => {
-      const navbar = document.querySelector(".navbar");
-      if (navbar) navbar.classList.add("animate");
-    };
 
     const animateHeroText = () => {
       const heroName = document.querySelector(".hero-name");
@@ -29,7 +32,6 @@ export const useScrollAnimation = (ready = true) => {
     };
 
     const timer = setTimeout(() => {
-      animateNavbar();
       animateHeroText();
     }, 50);
 

@@ -8,9 +8,11 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
 import useScrollAnimation from "./hooks/useScrollAnimation";
+import useTheme from "./hooks/useTheme";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   // Initialize scroll animations; entrance animation waits for `loaded`
   useScrollAnimation(loaded);
@@ -19,7 +21,7 @@ function App() {
     <>
       <LoadingScreen onDone={() => setLoaded(true)} />
       <div className={`site${loaded ? " is-visible" : ""}`}>
-        <Navbar />
+        <Navbar loaded={loaded} theme={theme} toggleTheme={toggleTheme} />
         <main>
           <Hero />
           <Projects />

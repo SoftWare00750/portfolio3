@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from "react";
 
-export default function Navbar() {
+export default function Navbar({ loaded, theme, toggleTheme }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [animated, setAnimated] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Entrance animation state lives in React (not manipulated directly on
+  // the DOM) so it survives re-renders triggered by scrolling. Previously
+  // the "animate" class was added imperatively via document.querySelector,
+  // which React wiped out on every re-render (e.g. when `scrolled` toggled),
+  // making the navbar appear to slide back up as soon as the user scrolled.
+  useEffect(() => {
+    if (!loaded) return;
+    const timer = setTimeout(() => setAnimated(true), 50);
+    return () => clearTimeout(timer);
+  }, [loaded]);
 
   const scrollToSection = (sectionId) => {
     setOpen(false);
@@ -35,10 +47,34 @@ export default function Navbar() {
 
   const toggleMenu = () => setOpen((prev) => !prev);
 
+  const themeToggleButton = (
+    <button
+      type="button"
+      className="theme-toggle"
+      data-active={theme}
+      role="switch"
+      aria-checked={theme === "dark"}
+      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      onClick={toggleTheme}
+    >
+      <span className="theme-toggle__icon" aria-hidden="true">
+        ☀️
+      </span>
+      <span className="theme-toggle__icon" aria-hidden="true">
+        🌙
+      </span>
+      <span className="theme-toggle__thumb" />
+    </button>
+  );
+
   return (
     <>
       {/* NAVBAR - Fixed at top */}
-      <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <header
+        className={`navbar ${scrolled ? "scrolled" : ""} ${
+          animated ? "animate" : ""
+        }`}
+      >
         <div className="nav-inner">
           {/* Logo */}
           <div
@@ -68,6 +104,7 @@ export default function Navbar() {
             <button className="contact-button" onClick={() => scrollToSection("contact")}>
               Contact Me
             </button>
+            {themeToggleButton}
           </nav>
 
           {/* Hamburger - Visible on mobile only */}
@@ -103,6 +140,7 @@ export default function Navbar() {
         <button className="contact-button" onClick={() => scrollToSection("contact")}>
           Contact Me
         </button>
+        {themeToggleButton}
       </nav>
     </>
   );
