@@ -9,7 +9,6 @@ export default function Hero() {
           <div className="hero-text1">
             <h1 className="hero-name">
               <span className="first-name">Oluwadamilola</span>
-              <br />
               <span className="last-name">Otunla</span>
             </h1>
             <span className="hero-sub">
