@@ -435,12 +435,12 @@ h6 {
   text-shadow: 2px 2px 0 #0a0a0a, 4px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* Desktop: place hero-sub beside hero-name instead of stacking below it */
+/* Desktop: keep hero-sub stacked directly below hero-name */
 @media (min-width: 769px) {
   .hero-text1 {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    flex-wrap: wrap;
     gap: clamp(1.5rem, 4vw, 3.5rem);
   }
 
@@ -449,7 +449,7 @@ h6 {
   }
 
   .hero-sub {
-    flex: 1 1 320px;
+    flex: 1 1 auto;
     margin-top: 0.4em;
   }
 }
