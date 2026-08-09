@@ -418,6 +418,11 @@ h6 {
   color: var(--white);
 }
 
+.hero-sub {
+  display: block;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
 .hero-name .first-name {
   display: block;
 }
@@ -428,11 +433,6 @@ h6 {
   color: var(--accent);
   letter-spacing: 0.02em;
   text-shadow: 2px 2px 0 #0a0a0a, 4px 4px 6px rgba(0, 0, 0, 0.5);
-}
-
-.hero-sub {
-  display: block;
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 /* Desktop: place hero-sub beside hero-name instead of stacking below it */
