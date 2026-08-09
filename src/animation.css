@@ -73,8 +73,18 @@
 /* Projects animations - Smooth slides */
 .project-card {
   opacity: 0;
+  transform: translateY(40px);
   transition: opacity 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
               transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Fallback reveal rule for EVERY card (5th, 6th, 7th... and beyond).
+   Without this, only the first 4 cards (which have their own
+   nth-child(n).animate overrides below) would ever get opacity: 1 —
+   every other project would stay invisible forever. */
+.project-card.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* proj-1: Top-left */
